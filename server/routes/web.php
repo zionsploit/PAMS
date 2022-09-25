@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\View\Components\auth\App as Authcomponents;
+use App\View\Components\dashboard\Dashboard as DashboardComponents;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [Authcomponents::class, 'render']);
+Route::get('/dashboard', [DashboardComponents::class, 'render']);
